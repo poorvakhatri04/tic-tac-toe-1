@@ -45,7 +45,14 @@ public class TicTacToe {
                 tile.setForeground(Color.white);
                 tile.setFont(new Font("Arial",Font.BOLD,120));
                 tile.setFocusable(false);
-                tile.setText(current);
+                tile.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e){
+                        JButton tile=(JButton)e.getSource();
+                        tile.setText(current);
+                        current=current==playerX?playerO:playerX;
+                        textLabel.setText(current+"'s turn.");
+                    }
+                });
             }
         }
     }
